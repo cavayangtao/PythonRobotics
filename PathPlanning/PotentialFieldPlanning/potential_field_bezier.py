@@ -184,13 +184,13 @@ def main():
 
     obstacle_radius = [0.2, 0.5, 0.3, 0.3]      #障碍物半径
 
-    draw_axis(sx, sy, gx, gy, ox, oy, xmin, xmax, ymin, ymax, obstacle_radius)
+    if show_animation:
+        draw_axis(sx, sy, gx, gy, ox, oy, xmin, xmax, ymin, ymax, obstacle_radius)
     
     # 返回路径点
     rx, ry = potential_field_planning(
         sx, sy, gx, gy, ox, oy, grid_size, robot_radius, obstacle_radius, xmin, xmax, ymin, ymax)
 
-    
     points = np.array([[rx[0], ry[0]], [rx[1], ry[1]]])     #创建路径的二维数组
 
     for j in range(2, len(rx), 1):
